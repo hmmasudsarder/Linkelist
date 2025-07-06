@@ -25,7 +25,12 @@ void print_forwared(Node*  head){
     cout << endl;
 }
 
-
+void delete_at_head(Node* &head, Node* &tail){
+    Node * deletedNode = head;
+    head = head->next;
+    head->prev = NULL;
+    delete deletedNode;
+}
 
 int main()
 {
@@ -38,6 +43,7 @@ int main()
     a->next = tail;
     tail->prev = a;
 
+    delete_at_head(head, tail);
     print_forwared(head);
     return 0;
 }
