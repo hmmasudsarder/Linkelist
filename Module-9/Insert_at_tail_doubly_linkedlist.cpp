@@ -26,6 +26,13 @@ void print_forwared(Node*  head){
 
 void insert_at_tail(Node* &head, Node* &tail, int val){
     Node* newnode = new Node(val);
+    if (head == NULL)
+    {
+        head = newnode;
+        tail = newnode;
+        return;
+    }
+    
     tail->next = newnode;
     newnode->prev = tail;
     tail = newnode;
@@ -43,6 +50,7 @@ int main()
     tail->prev = a;
     
     insert_at_tail(head, tail, 100);
+    insert_at_tail(head, tail, 200);
     print_forwared(head);
     return 0;
 }
